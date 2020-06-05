@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Gen2PokemonViewer.Models;
@@ -10,7 +11,7 @@ namespace Gen2PokemonViewer.Controllers
     {
         
         [HttpGet]
-        public async Task<IActionResult> Search([FromQuery] string q = "")
+        public async Task<IActionResult> Search([FromQuery] string q = "", [FromQuery] int page = 0, [FromQuery] int perPage = 25)
         {
             
             List<NameAndUrl> results = CachedPokemonList.Pokemon;
@@ -19,8 +20,22 @@ namespace Gen2PokemonViewer.Controllers
             {
                 results = results.Where(x => x.Name.ToLower().Contains(q)).ToList();
             }
+
+            ViewBag.Page = page;
+            ViewBag.PerPage = perPage;
+            ViewBag.Pages = (int)Math.Ceiling((double)results.Count / perPage);
+            ViewBag.Query = q;
+
+            int startIndex = (page * perPage > results.Count)
+                ? (results.Count - perPage - 1)
+                : page * perPage;
+            int count = (startIndex + perPage > results.Count)
+                ? (results.Count - startIndex)
+                : perPage;
             
-            return View(results);
+            ViewBag.StartIndex = startIndex;
+
+            return View(results.GetRange(startIndex, count));
         }
     }
 }
