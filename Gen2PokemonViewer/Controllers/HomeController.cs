@@ -11,22 +11,24 @@ namespace Gen2PokemonViewer.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly PokeDal SP = new PokeDal();
+      
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
-        public IActionResult Index()
+ 
+        
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+        public IActionResult Search()
         {
-            Pokemon p = SP.GetPokemonById(1);
-            return View(p);
+            return View();
         }
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
 
         public IActionResult Privacy()
         {
