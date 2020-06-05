@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gen2PokemonViewer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200604181428_InitialCreate")]
+    [Migration("20200605182136_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
