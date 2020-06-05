@@ -9,6 +9,8 @@ namespace Gen2PokemonViewer.Models
         public object[] Abilities { get; set; }
         public object[] Forms { get; set; }
         public int Height { get; set; }
+        
+        [JsonProperty("id")]
         public int InternalId { get; set; }
         [JsonProperty("is_default")]
         public bool IsDefault { get; set; }
