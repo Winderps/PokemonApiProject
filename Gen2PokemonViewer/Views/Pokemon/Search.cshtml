@@ -1,10 +1,13 @@
 @using Microsoft.AspNetCore.Mvc.Diagnostics
 @model List<NameAndUrl>
 
+<link href="~/Content/styles.css" rel="stylesheet" type="text/css" />
+
+<body style="styles.css">
 <script type="text/javascript">
     function doHover(id){
         var current = document.getElementsByClassName("active");
-    
+
         // If there's no active class
         if (current.length > 0) {
           current[0].className = current[0].className.replace(" active", "");
@@ -17,7 +20,7 @@
     }
     window.onload = function() {document.getElementById("@("select"+ViewBag.PerPage)").selected = true;}
 </script>
-<h2>Search Pokemon</h2>
+<h2 style="color:#FFCB05">Search Pokemon</h2>
 <form action="/Pokemon/Search" method="get">
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -26,6 +29,7 @@
         <input type="text" name="q" value="@ViewBag.Query" class="form-control" aria-label="Game Name" aria-describedby="inputName-Sizing">
         <div class="input-group-append">
             <span class="input-group-text input-group-prepend" id="basic-addon2">Results Per Page</span>
+            <span class="input-group-text" id="basic-addon2">Results Per Page</span>
             <select name="perPage" class="custom-select w-25" aria-describedby="basic-addon2">
                 <option id="select10" value="10">10</option>
                 <option id="select25" value="25">25</option>

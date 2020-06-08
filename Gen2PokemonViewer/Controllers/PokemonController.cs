@@ -38,6 +38,7 @@ namespace Gen2PokemonViewer.Controllers
             return View(results.GetRange(startIndex, count));
         }
 
+
         public async Task<IActionResult> FavoritesPage()
         {
             return View();

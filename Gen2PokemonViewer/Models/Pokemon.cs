@@ -14,8 +14,7 @@ namespace Gen2PokemonViewer.Models
         public int InternalId { get; set; }
         [JsonProperty("is_default")]
         public bool IsDefault { get; set; }
-
-        public Species[] Species { get; set; }
+        public Species Species { get; set; }
         public Sprite Sprites { get; set; }
 
         public Type[] Types { get; set; }
