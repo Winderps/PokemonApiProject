@@ -14,7 +14,6 @@ namespace Gen2PokemonViewer.Models
 
             listResponse.Wait();
             Pokemon = listResponse.Result.Results;
-            
         }
     }
 
