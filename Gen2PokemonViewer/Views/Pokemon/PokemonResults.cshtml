@@ -48,6 +48,17 @@
                     <img style="position: relative; width: 13%; height: auto; top: -160px; left: 58%; border: solid; background-image:url(../Content/Images/urbbkg.jpg)" src=@Model.Sprites.FrontDefault>
                     <img style="position: relative; width: 13%; height: auto; top: -160px; left: 58%; border: solid; background-image:url(../Content/Images/mtnbkg.jpg)" src=@Model.Sprites.BackDefault>
                     <img style="position: relative; width: 13%; height: auto; top: -160px; left: 58%; border: solid; background-image:url(../Content/Images/cavebkg.jpg)" src=@Model.Sprites.FrontShiny>
+                    @if (ViewBag.UserId != "null")
+                    {
+                        if (ViewBag.IsFavorited)
+                        {
+                            <a href="/Pokemon/RemoveFavorite?id=@Model.InternalId" class="btn btn-primary">Remove from Favorites!</a>
+                        }
+                        else
+                        {
+                            <a href="/Pokemon/AddFavorite?id=@Model.InternalId" class="btn btn-primary">Add to Favorites!</a>
+                        }
+                    }
                 </divimg> 
             </div>
         </div>

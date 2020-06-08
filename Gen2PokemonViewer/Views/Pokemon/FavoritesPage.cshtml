@@ -1,20 +1,18 @@
-﻿@model List<Pokemon>
+﻿@model List<NameAndUrl>
 
 <h1>Your Favorites</h1>
 
 <table class="table table-danger">
     <tr>
         <th>Pokemon</th>
-        <th>Sprite</th>
         <th>Poke-Page</th>
     </tr>
     
-    @foreach(Pokemon p in Model)
+    @foreach(NameAndUrl p in Model)
     {
         <tr>
             <td>@p.Name</td>
-            <td><img src="@p.Sprites.FrontDefault" /></td>
-            <td><a href="/Pokemon/PokemonResults?id=@p.Name"></a>Go To Poke-Page</td>
+            <td><a href="/Pokemon/PokemonResults?id=@p.Url.Split('/')[^2]">Go To Poke-Page</a></td>
 
 
         </tr>

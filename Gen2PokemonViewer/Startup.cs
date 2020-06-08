@@ -33,6 +33,8 @@ namespace Gen2PokemonViewer
             
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
+            services.AddDbContext<PokemonDbContext>(options =>
+                options.UseSqlServer(connectionString));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
