@@ -37,5 +37,18 @@ namespace Gen2PokemonViewer.Controllers
 
             return View(results.GetRange(startIndex, count));
         }
+
+        public async Task<IActionResult> FavoritesPage()
+        {
+            return View();
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> PokemonResults([FromQuery] int id = 0)
+        {
+            Pokemon pokemon = await Utilities.GetApiResponse<Pokemon>(
+                "api/v2", "pokemon", "https://pokeapi.co", id.ToString());
+            return View(pokemon);
+        }
     }
 }

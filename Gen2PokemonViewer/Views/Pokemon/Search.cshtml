@@ -25,7 +25,7 @@
         </div>
         <input type="text" name="q" value="@ViewBag.Query" class="form-control" aria-label="Game Name" aria-describedby="inputName-Sizing">
         <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon2">Results Per Page</span>
+            <span class="input-group-text input-group-prepend" id="basic-addon2">Results Per Page</span>
             <select name="perPage" class="custom-select w-25" aria-describedby="basic-addon2">
                 <option id="select10" value="10">10</option>
                 <option id="select25" value="25">25</option>
@@ -39,8 +39,8 @@
 @for (int i=0;i<Model.Count;i++)
 {
 <div class="list-group">
-        <a href="/Pokemon/Pokemon?id=@(Model[i].Url.Split('/')[^2])" id="@i" class="list-group-item list-group-item-action" onmouseover="doHover(@i)" onmouseleave="unHover(@i)">
-            #@(ViewBag.StartIndex+i+1) @Model[i].Name
+        <a href="/Pokemon/PokemonResults?id=@(Model[i].Url.Split('/')[^2])" id="@i" class="list-group-item list-group-item-action" onmouseover="doHover(@i)" onmouseleave="unHover(@i)">
+            #@(Model[i].Url.Split('/')[^2]) @Model[i].Name
         </a>
     </div>
 }
