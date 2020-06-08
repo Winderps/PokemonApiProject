@@ -42,9 +42,9 @@
 @for (int i=0;i<Model.Count;i++)
 {
 <div class="list-group">
-        <a href="/Pokemon/PokemonResults?id=@(Model[i].Url.Split('/')[^2])" id="@i" class="list-group-item list-group-item-action" onmouseover="doHover(@i)" onmouseleave="unHover(@i)">
-            #@(Model[i].Url.Split('/')[^2]) @Model[i].Name
-        </a>
+    <a href="/Pokemon/PokemonResults?id=@(Model[i].Url.Split('/')[^2])" id="@i" class="list-group-item list-group-item-action" onmouseover="doHover(@i)" onmouseleave="unHover(@i)">
+        #@(Model[i].Url.Split('/')[^2]) @(char.ToUpper(Model[i].Name[0]) + Model[i].Name.Substring(1))
+    </a>
     </div>
 }
 @{

@@ -16,7 +16,6 @@ namespace Gen2PokemonViewer
             {
                 return null;
             }
-
             
             var ret = new List<KeyValuePair<string, string>>();
 
